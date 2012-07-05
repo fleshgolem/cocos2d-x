@@ -508,13 +508,10 @@ namespace cocos2d
 			m_pobDescendants->removeObjectAtIndex(uIndex);
 
 			// update all sprites beyond this one
-			unsigned int count = m_pobDescendants->count();
-
-			for(; uIndex < count; ++uIndex)
-			{
-				CCSprite* s = (CCSprite*)(m_pobDescendants->objectAtIndex(uIndex));
-				s->setAtlasIndex( s->getAtlasIndex() - 1 );
-			}
+			for(int i = 0; i < uIndex; i++) {
+                CCSprite* s = (CCSprite*)(m_pobDescendants->objectAtIndex(i));
+                s->setAtlasIndex( s->getAtlasIndex() - 1 );
+            }
 		}
 
 		// remove children recursively
